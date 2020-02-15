@@ -17,33 +17,10 @@
       :class="{'active' : tabIndex==index}" ref="navItem"
       @click="changeCurrentTab(index)">{{item}}</a>
     </div>
-    <div class="screen-4">
-      <div class="screen-4__wrapper">
-        <div class="screen-4__heading">丰富的手机型号</div>
-        <div class="screen-4__subheading">找到适合你的手机</div>
-        <div class="screen-4__type">
-          <div class="screen-4__item screen-4__item_i_1">
-            <img src="./imgs/screen4-mobile1.png" class="screen-4__item__img">
-            <div class="screen-4__type__item_color">酷炫红</div>
-            <div class="screen-4__type__item_storage">16G/32G/64G</div>
-          </div>
-          <div class="screen-4__item screen-4__item_i_2">
-            <img src="./imgs/screen4-mobile2.png" class="screen-4__item__img">
-            <div class="screen-4__type__item_color">土豪金</div>
-            <div class="screen-4__type__item_storage">16G/32G/64G</div>
-          </div>
-          <div class="screen-4__item screen-4__item_i_3">
-            <img src="./imgs/screen4-mobile3.png" class="screen-4__item__img">
-            <div class="screen-4__type__item_color">土豪金</div>
-            <div class="screen-4__type__item_storage">16G/32G/64G</div>
-          </div>
-          <div class="screen-4__item screen-4__item_i_4">
-            <img src="./imgs/screen4-mobile4.png" class="screen-4__item__img">
-            <div class="screen-4__type__item_color">土豪金</div>
-            <div class="screen-4__type__item_storage">16G/32G/64G</div>
-          </div>          
-        </div>
-      </div>
+    <div class="screen-5">
+      <div class="screen-5__heading">游戏、学习、拍照、有这一部就够了</div>
+      <div class="screen-5__subheading">看视频、拍摄高清视频与照片、视频聊天、一机多功能，让您生活更丰富精彩。</div>
+      <div class="screen-5__bg"></div>
     </div>
     <div class="screen-1">
       <div class="screen-1__heading">
@@ -86,6 +63,34 @@
           </div>
         </div>
       </div>  
+    </div>
+    <div class="screen-4">
+      <div class="screen-4__wrapper">
+        <div class="screen-4__heading">丰富的手机型号</div>
+        <div class="screen-4__subheading">找到适合你的手机</div>
+        <div class="screen-4__type">
+          <div class="screen-4__item screen-4__item_i_1">
+            <img src="./imgs/screen4-mobile1.png" class="screen-4__item__img">
+            <div class="screen-4__type__item_color">酷炫红</div>
+            <div class="screen-4__type__item_storage">16G/32G/64G</div>
+          </div>
+          <div class="screen-4__item screen-4__item_i_2">
+            <img src="./imgs/screen4-mobile2.png" class="screen-4__item__img">
+            <div class="screen-4__type__item_color">土豪金</div>
+            <div class="screen-4__type__item_storage">16G/32G/64G</div>
+          </div>
+          <div class="screen-4__item screen-4__item_i_3">
+            <img src="./imgs/screen4-mobile3.png" class="screen-4__item__img">
+            <div class="screen-4__type__item_color">土豪金</div>
+            <div class="screen-4__type__item_storage">16G/32G/64G</div>
+          </div>
+          <div class="screen-4__item screen-4__item_i_4">
+            <img src="./imgs/screen4-mobile4.png" class="screen-4__item__img">
+            <div class="screen-4__type__item_color">土豪金</div>
+            <div class="screen-4__type__item_storage">16G/32G/64G</div>
+          </div>          
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -160,6 +165,10 @@ export default {
     this.setScreenAnimateInit('.screen-4__item_i_2');
     this.setScreenAnimateInit('.screen-4__item_i_3');
     this.setScreenAnimateInit('.screen-4__item_i_4');
+    this.setScreenAnimateInit('.screen-4__item_i_4');
+    this.setScreenAnimateInit('.screen-5__heading');
+    this.setScreenAnimateInit('.screen-5__subheading');
+    this.setScreenAnimateInit('.screen-5__bg');
   //   for(let k in screenAnimateElements){
   //     if(k == '.screen-1'){
   //       continue;
@@ -183,6 +192,9 @@ export default {
       this.playScreenAnimateDone('.screen-4__heading');
       this.playScreenAnimateDone('.screen-4__subheading');
       this.playScreenAnimateDone('.screen-4__item_i_1');
+      this.playScreenAnimateDone('.screen-5__heading');
+      this.playScreenAnimateDone('.screen-5__subheading');
+      this.playScreenAnimateDone('.screen-5__bg');
     }, 100)
 
     setTimeout(() => {
