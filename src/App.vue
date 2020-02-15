@@ -17,6 +17,15 @@
       :class="{'active' : tabIndex==index}" ref="navItem"
       @click="changeCurrentTab(index)">{{item}}</a>
     </div>
+    <div class="screen-2">
+      <div class="screen-2__heading">优美的设计，更令人着迷</div>
+      <div class="screen-2__subheading">采用受欢迎的设计，让它更加出色。<br/>款式小巧、轻便手感更舒适。绚丽高清的显示屏，整个外观显得格外精致。</div>
+      <div class="screen-2__phone">
+        <div class="screen-2__point screen-2__point_custom_left screen-2__point_i_1">超薄机身</div>
+        <div class="screen-2__point screen-2__point_custom_left screen-2__point_i_2">大屏显示</div>
+        <div class="screen-2__point screen-2__point_custom_right screen-2__point_i_3">高清摄像</div>
+      </div>
+    </div>
     <div class="screen-1">
       <div class="screen-1__heading">
         <b>heyzqt手机</b>
@@ -82,6 +91,12 @@ export default {
     this.setScreenAnimateInit('.screen-1__heading');
     this.setScreenAnimateInit('.screen-1__phone');
     this.setScreenAnimateInit('.screen-1__shadow');
+    this.setScreenAnimateInit('.screen-2__heading');
+    this.setScreenAnimateInit('.screen-2__subheading');
+    this.setScreenAnimateInit('.screen-2__phone');
+    this.setScreenAnimateInit('.screen-2__point_i_1');
+    this.setScreenAnimateInit('.screen-2__point_i_2');
+    this.setScreenAnimateInit('.screen-2__point_i_3');
   //   for(let k in screenAnimateElements){
   //     if(k == '.screen-1'){
   //       continue;
@@ -92,6 +107,12 @@ export default {
       this.playScreenAnimateDone('.screen-1__heading');
       this.playScreenAnimateDone('.screen-1__phone');
       this.playScreenAnimateDone('.screen-1__shadow');
+      this.playScreenAnimateDone('.screen-2__heading');
+      this.playScreenAnimateDone('.screen-2__subheading');
+      this.playScreenAnimateDone('.screen-2__phone');
+      this.playScreenAnimateDone('.screen-2__point_i_1');
+      this.playScreenAnimateDone('.screen-2__point_i_2');
+      this.playScreenAnimateDone('.screen-2__point_i_3');
     }, 100)
     
   },
