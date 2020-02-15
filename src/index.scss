@@ -1,0 +1,79 @@
+
+.header__wrap {
+    width: 1200px;
+    height: 80px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.header__logo {
+    width: 160px;
+    height: 38px;
+    font-size: 20px;
+    line-height: 38px;
+    color: #07111b;
+    background: url('./imgs/logo.png');
+    background-size: 38px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-indent: 50px;
+    left: 20px;
+}
+
+.header__nav {
+    height: 38px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    margin-right: 120px;
+
+    .nav-item {
+        display: inline-block;
+        font-size: 14px;
+        height: 38px;
+        line-height: 38px;
+        text-decoration: none;
+        color: #292f35;
+        margin-left: 40px;
+
+        &.active {
+            color: #f01400;
+        }
+    }
+
+    a:hover {
+        color: #f01400;
+    }
+
+    .header__nav-tip {
+        background-color: #f01400;
+        width: 30px;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        // margin-left: 40px;
+        transition: all .2s linear;
+    }
+}
+
+.header__nav-item_buy_button {
+    color: #fff;
+    background-color: #000;
+    width: 90px;
+    height: 38px;
+    line-height: 38px;
+    border-radius: 3px;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+        color: #f01400;
+    }
+}
