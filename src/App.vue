@@ -17,11 +17,6 @@
       :class="{'active' : tabIndex==index}" ref="navItem"
       @click="changeCurrentTab(index)">{{item}}</a>
     </div>
-    <div class="screen-5">
-      <div class="screen-5__heading">游戏、学习、拍照、有这一部就够了</div>
-      <div class="screen-5__subheading">看视频、拍摄高清视频与照片、视频聊天、一机多功能，让您生活更丰富精彩。</div>
-      <div class="screen-5__bg"></div>
-    </div>
     <div class="screen-1">
       <div class="screen-1__heading">
         <b>heyzqt手机</b>
@@ -92,6 +87,17 @@
         </div>
       </div>
     </div>
+    <div class="screen-5">
+      <div class="screen-5__heading">游戏、学习、拍照、有这一部就够了</div>
+      <div class="screen-5__subheading">看视频、拍摄高清视频与照片、视频聊天、一机多功能，让您生活更丰富精彩。</div>
+      <div class="screen-5__bg"></div>
+    </div>
+    <div class="screen-buy">
+      <a href="javascript:" class="screen-buy__button">立即购买</a>
+    </div>
+    <footer class="footer">
+      © 2020 heyzqt@qq.com 京ICP备13046642号
+    </footer>
   </div>
 </template>
 <script>
