@@ -322,3 +322,112 @@
         transform: translate(-100%, 0);
     }
 }
+
+.screen-3 {
+    height: 800px;
+    background-color: #B22C1A;
+    position: relative;
+    overflow: hidden;
+
+    .screen3__wrapper {
+        width: 1200px;
+        height: auto;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .screen-3__heading {
+        color: #fff;
+        font-size: 46px;
+        line-height: 46px;
+        text-align: left;
+        padding-top: 94px;
+    }
+
+    .screen-3__subheading {
+        color: #fff;
+        font-size: 14px;
+        text-align: left;
+        padding-top: 25px;
+        line-height: 28px;
+    }
+
+    .screen-3__phone {
+        background: url("./imgs/mobile2.png") no-repeat center;
+        background-size: contain;
+        width: 380px;
+        height: 1000px;
+        position: absolute;
+        right: 150px;
+        top: 150px;
+    }
+
+    .screen-3__features {
+        width: 350px;
+        height: 300px;
+        position: absolute;
+        top: 350px;
+        left: 0;
+
+        .screen-3__features__item {
+            float: left;
+            width: 135px;
+            height: 120px;
+            border: 1px solid #cb7173;
+            margin: 0 20px 20px 0;
+            border-radius: 3px;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.1);
+                border-color: #fff;
+                transition: all .5s;
+            }
+
+            .screen-3__features__item__number {
+                color: #fff;
+                font-size: 36px;
+                line-height: 36px;
+                margin: 30px 0 10px 0;
+                text-align: center;
+            }
+
+            .screen-3__features__item__des {
+                color: #fff;
+                font-size: 14px;
+                line-height: 14px;
+                text-align: center;
+            }
+        }
+    }
+
+    .screen-3__heading_animate_init {
+        opacity: 0;
+        transform: translate(0, -100%);
+    }
+    .screen-3__subheading_animate_init {
+        opacity: 0;
+        transform: translate(0, 100%);
+    }
+    .screen-3__phone_animate_init {
+        opacity: 0;
+        transform: translate(0, 50%);
+    }
+    .screen-3__features_animate_init {
+        opacity: 0;
+        transform: scale(.5);
+    }
+
+    .screen-3__heading_animate_done,
+    .screen-3__subheading_animate_done,
+    .screen-3__phone_animate_done {
+        opacity: 1;
+        transform: translate(0, 0);
+        transition: all 1s;
+    }
+    .screen-3__features_animate_done {
+        opacity: 1;
+        transform: scale(1);
+        transition: all 1s;
+    }
+}
