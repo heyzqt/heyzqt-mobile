@@ -431,3 +431,99 @@
         transition: all 1s;
     }
 }
+
+.screen-4 {
+    height: 1200px;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+
+    .screen4__wrapper {
+        width: 1200px;
+        height: auto;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .screen-4__heading {
+        font-size: 46px;
+        line-height: 46px;
+        color: #f01400;
+        text-align: center;
+        padding-top: 135px;
+    }
+
+    .screen-4__subheading {
+        font-size: 14px;
+        color: #464a4f;
+        text-align: center;
+        padding-top: 29px;
+        line-height: 28px;
+    }
+
+    .screen-4__type {
+        width: 1260px;
+        position: absolute;
+        margin-top: 150px;
+        margin-left: 100px;
+        display: flex;
+
+        .screen-4__item,
+        .screen-4__item__img {
+            width: 200px;
+            margin-left: 120px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        .screen-4__type__item_color {
+            width: 100%;
+            height: 14px;
+            line-height: 14px;
+            font-size: 14px;
+            color: #2c3238;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .screen-4__type__item_storage {
+            width: 100%;
+            height: 12px;
+            line-height: 12px;
+            font-size: 12px;
+            color: #a4a9ae;
+            text-align: center;
+            margin-top: 5px;
+        }
+    }
+
+    .screen-4__heading_animate_init {
+        opacity: 0;
+        transform: translate(0, -100%);
+    }
+    .screen-4__subheading_animate_init {
+        opacity: 0;
+        transform: translate(0, 100%);
+    }
+
+    .screen-4__item_i_1_animate_init,
+    .screen-4__item_i_2_animate_init,
+    .screen-4__item_i_3_animate_init,
+    .screen-4__item_i_4_animate_init {
+        opacity: 0;
+    }
+
+    .screen-4__heading_animate_done,
+    .screen-4__subheading_animate_done,
+    .screen-4__item_animate_done,
+    .screen-4__item_i_1_animate_done,
+    .screen-4__item_i_2_animate_done,
+    .screen-4__item_i_3_animate_done,
+    .screen-4__item_i_4_animate_done {
+        opacity: 1;
+        transform: translate(0, 0);
+        transition: all 1s;
+    }
+}
