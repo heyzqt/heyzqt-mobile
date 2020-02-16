@@ -20,6 +20,19 @@
     transform: translateY(-50%);
     text-indent: 50px;
     left: 20px;
+
+    &.status_black {
+        color: #fff;
+    }
+}
+
+.header_status_black {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: 3;
+    margin: 0 auto;
 }
 
 .header__nav {
@@ -39,13 +52,17 @@
         color: #292f35;
         margin-left: 40px;
 
+        &.status_black {
+            color: #fff;
+        }
+
         &.active {
             color: #f01400;
         }
     }
 
     a:hover {
-        color: #f01400;
+        color: #f01400 !important;
     }
 
     .header__nav-tip {

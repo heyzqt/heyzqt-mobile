@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <div class="header">
+    <div class="header" :class="{'header_status_black': showBlack}">
       <div class="header__wrap">
-        <div class="header__logo">heyzqt手机</div>
+        <div class="header__logo" :class="{'status_black': showBlack}">heyzqt手机</div>
         <div class="header__nav">
-          <a v-for="(item,index) in navList" :key="index" href="javascript:" class="nav-item" 
-          :class="{'active' : tabIndex==index}" ref="navItem" @mouseover="changeIndicator(index)"
+          <a v-for="(item,index) in navList" :key="index" href="javascript:" class="nav-item"
+          :class="[{'active' : tabIndex==index}, {'status_black': showBlack}]" ref="navItem"
           @click="changeCurrentTab(index)">{{item}}</a>
           <div class="header__nav-tip" ref="navTip" :style="`left: ${scrollLeft}px`" v-show="scrollLeft!=0"></div>
         </div>
@@ -142,14 +142,65 @@ export default {
     return {
       navList: ["首页", "外观", "配置", "型号", "说明"],
       tabIndex: 0, //导航栏tab选择记录
-      scrollLeft: 0
+      scrollLeft: 0,
+      showBlack: false
     }
   },
   mounted() {
-    if(storage.get('tabIndex') != null) {
-      this.tabIndex = storage.get('tabIndex');
-    }
-    this.scrollLeft=this.$refs.navItem[this.tabIndex].offsetLeft;
+    this.scrollLeft=this.$refs.navItem[this.tabIndex].offsetLeft;    
+    window.addEventListener('scroll', ()=>{
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      console.log('pageYOffset=', pageYOffset, ', documentElement scrollTop=', document.documentElement.scrollTop, ', document.body.scrollTop=', document.body.scrollTop)
+      this.showBlack = scrollTop > 80;
+
+      if (scrollTop > 800 - 200) {
+        setTimeout(()=>{
+          this.playScreenAnimateDone('.screen-2__heading');
+          this.playScreenAnimateDone('.screen-2__subheading');
+          this.playScreenAnimateDone('.screen-2__phone');
+          this.playScreenAnimateDone('.screen-2__point_i_1');
+          this.playScreenAnimateDone('.screen-2__point_i_2');
+          this.playScreenAnimateDone('.screen-2__point_i_3');
+        }, 100)
+        this.changeCurrentTab(1);
+      } else {
+        this.changeCurrentTab(0);
+      }
+      if (scrollTop > 800*2-200) {
+        setTimeout(()=>{
+          this.playScreenAnimateDone('.screen-3__heading');
+          this.playScreenAnimateDone('.screen-3__subheading');
+          this.playScreenAnimateDone('.screen-3__phone');
+          this.playScreenAnimateDone('.screen-3__features');
+        }, 100)
+        this.changeCurrentTab(2);
+      } 
+      if (scrollTop > 800*3-200) {
+        setTimeout(() => {
+          this.playScreenAnimateDone('.screen-4__heading');
+          this.playScreenAnimateDone('.screen-4__subheading');
+          this.playScreenAnimateDone('.screen-4__item_i_1');
+            setTimeout(() => {
+                this.playScreenAnimateDone('.screen-4__item_i_2');
+            }, 300);
+            setTimeout(() => {
+                this.playScreenAnimateDone('.screen-4__item_i_3');
+            }, 600);
+                setTimeout(() => {
+                this.playScreenAnimateDone('.screen-4__item_i_4');
+            }, 900);
+        }, 100)
+        this.changeCurrentTab(3);
+      } 
+      if (scrollTop > 800*4-200) {
+        setTimeout(() => {
+          this.playScreenAnimateDone('.screen-5__heading');
+          this.playScreenAnimateDone('.screen-5__subheading');
+          this.playScreenAnimateDone('.screen-5__bg');
+        }, 100)
+        this.changeCurrentTab(4);
+      } 
+    });
 
     //screen1的动画
     this.setScreenAnimateInit('.screen-1__heading');
@@ -175,76 +226,31 @@ export default {
     this.setScreenAnimateInit('.screen-5__heading');
     this.setScreenAnimateInit('.screen-5__subheading');
     this.setScreenAnimateInit('.screen-5__bg');
-  //   for(let k in screenAnimateElements){
-  //     if(k == '.screen-1'){
-  //       continue;
-  //     }
-  //     setScreenAnimateInit(k);
-  //  }
+
     setTimeout(()=>{
       this.playScreenAnimateDone('.screen-1__heading');
       this.playScreenAnimateDone('.screen-1__phone');
       this.playScreenAnimateDone('.screen-1__shadow');
-      this.playScreenAnimateDone('.screen-2__heading');
-      this.playScreenAnimateDone('.screen-2__subheading');
-      this.playScreenAnimateDone('.screen-2__phone');
-      this.playScreenAnimateDone('.screen-2__point_i_1');
-      this.playScreenAnimateDone('.screen-2__point_i_2');
-      this.playScreenAnimateDone('.screen-2__point_i_3');
-      this.playScreenAnimateDone('.screen-3__heading');
-      this.playScreenAnimateDone('.screen-3__subheading');
-      this.playScreenAnimateDone('.screen-3__phone');
-      this.playScreenAnimateDone('.screen-3__features');
-      this.playScreenAnimateDone('.screen-4__heading');
-      this.playScreenAnimateDone('.screen-4__subheading');
-      this.playScreenAnimateDone('.screen-4__item_i_1');
-      this.playScreenAnimateDone('.screen-5__heading');
-      this.playScreenAnimateDone('.screen-5__subheading');
-      this.playScreenAnimateDone('.screen-5__bg');
     }, 100)
-
-    setTimeout(() => {
-        this.playScreenAnimateDone('.screen-4__item_i_2');
-    }, 300);
-    setTimeout(() => {
-        this.playScreenAnimateDone('.screen-4__item_i_3');
-    }, 600);
-        setTimeout(() => {
-        this.playScreenAnimateDone('.screen-4__item_i_4');
-    }, 900);
     
   },
   methods: {
     setScreenAnimateInit(screenCls) {
       var screen = document.querySelector(screenCls); // 获取当前屏的元素
-      // var animateElements =  screenAnimateElements[screenCls]; // 需要设置动画的元素
-      // for(var i=0;i<animateElements.length;i++){
-      //     var element = document.querySelector(animateElements[i]);
-      //     var baseCls = element.getAttribute('class');
-      //     element.setAttribute('class',baseCls +' '+animateElements[i].substr(1)+'_animate_init');
-      // }
-
       let baseCls = screen.getAttribute('class');
       screen.setAttribute('class', baseCls+" "+screenCls.substring(1)+'_animate_init'); 
     },
     playScreenAnimateDone(screenCls){
         var screen = document.querySelector(screenCls); // 获取当前屏的元素
-        // var animateElements =  screenAnimateElements[screenCls]; // 需要设置动画的元素
-        // for(var i=0;i<animateElements.length;i++){
-        //     var element = document.querySelector(animateElements[i]);
-        //     var baseCls = element.getAttribute('class');
-        //     element.setAttribute('class',baseCls.replace('_animate_init','_animate_done'));    
-        // }
         let baseCls = screen.getAttribute('class');
         screen.setAttribute('class', baseCls.replace('_animate_init', '_animate_done')); 
     },
-    changeIndicator(index) {
-      this.scrollLeft=this.$refs.navItem[index].offsetLeft;
-    },
     changeCurrentTab(index) {
       this.tabIndex = index;
-      storage.set('tabIndex', index);
-      this.scrollLeft=this.$refs.navItem[index].offsetLeft;
+      // storage.set('tabIndex', index);
+      if (this.$refs.navItem[index]) {
+        this.scrollLeft=this.$refs.navItem[index].offsetLeft;
+      }
     }
   }
 }
